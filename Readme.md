@@ -22,4 +22,4 @@
 
 ### Pilha
 
-**Torre de Hanoi**
+* [Torre de hanoi]( ) - Codigo recursivo feito em sala para a resolução da torre de hanoi
