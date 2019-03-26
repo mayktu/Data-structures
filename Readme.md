@@ -22,4 +22,4 @@
 
 ### Pilha
 
-* [Torre de hanoi]( ) - Codigo recursivo feito em sala para a resolução da torre de hanoi
+* [Torre de hanoi](https://github.com/mayktu/Data-structures/blob/master/hanoi.c) - Codigo recursivo feito em sala para a resolução da torre de hanoi
