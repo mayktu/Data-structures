@@ -26,7 +26,7 @@ static int M = 100000;
 
 int hash(Chave chave, int M){
     int i, h = 0;
-    int primo = 127;
+    int primo = 13259;
     for(i = 0; chave[i] != '\0'; i++){
         h = (h * primo + chave[i]) % M;
     }
@@ -96,11 +96,11 @@ void stInsert(Chave chave, Valor valor){
         nChaves += 1;
         p->prox = tab[h];
         tab[h] = p;
+        p->valor = valor;
     }
     else{
         printf("Contatinho ja inserido\n");
     }
-    p->valor = valor;
 }
 
 void stDelete(Chave chave){
@@ -138,7 +138,7 @@ void stFree(){
     int h;
     for(h = 0; h < M; h++){
         p = tab[h];
-        while(p != NULL){
+        while(p){
             q = p;
             p = p->prox;
             //Liberando a chave string de cada celula
@@ -179,14 +179,16 @@ int main(){
     char stringfrase[25];
     int telefone;
 
-
     fgets(stringfrase, sizeof(char)*25,stdin);
+    strtok(stringfrase, "\r");
     tipo = stringfrase[0];
     telefone = tratamento(stringfrase, nome);
 
     //Inicia a Hash
     stInit(M);
-    while(stringfrase[0] != '0'){
+
+    while(tipo != '0'){
+        //printf("nome: %s, tipo: %c, telefone: %d\n", nome,tipo,telefone);
         if(tipo  == 'I'){ //Insere
             stInsert(nome,telefone);
         }
@@ -201,6 +203,7 @@ int main(){
         }
 
         fgets(stringfrase, sizeof(char)*25,stdin);
+        strtok(stringfrase, "\r");
         tipo = stringfrase[0];
         telefone = tratamento(stringfrase, nome);
     }
